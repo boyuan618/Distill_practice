@@ -2,7 +2,7 @@ import asyncio, datetime, os
 from pyppeteer import launch
 
 
-list_of_websites = ['https://main.scta.org.sg/', 'https://www.shodan.io/', 'http://scanme.nmap.org/']
+list_of_websites = ['https://www.iiss.org/events/shangri-la-dialogue/shangri-la-dialogue-2022']
 
 async def main(website):
     browser = await launch(headless=True)
@@ -16,6 +16,9 @@ async def main(website):
     print(newpath)
     if not os.path.exists("screenshots/" + newpath):
         os.makedirs("screenshots/" + newpath)
+        
+    if not os.path.exists("defacement/" + newpath):
+        os.makedirs("defacement/" + newpath)
 
     filename = f"screenshots/{newpath}/{datetime.datetime.now()}.png".replace(":", "_")
     await page.screenshot({'path': filename, 'fullPage': True})

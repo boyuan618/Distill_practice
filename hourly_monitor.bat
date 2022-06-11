@@ -1,0 +1,2 @@
+python screenshot.py
+python compare_picutres_v2.py

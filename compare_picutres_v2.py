@@ -13,7 +13,7 @@ model = SentenceTransformer('clip-ViT-B-32')
 # To encode an image, you can use the following code:
 # from PIL import Image
 # encoded_image = model.encode(Image.open(filepath))
-image_names = list(glob.glob('screenshots/www.iiss.org_events_shangri-la-dialogue_shangri-la-dialogue-2022/*.png'))[-2:]
+image_names = list(glob.glob('screenshots/www.iiss.org_events_shangri-la-dialogue_shangri-la-dialogue-2022/images/*.png'))[-2:] #compare 2 most recent files
 print("Images:", len(image_names))
 encoded_image = model.encode([Image.open(filepath) for filepath in image_names], batch_size=128, convert_to_tensor=True, show_progress_bar=True)
 
